@@ -8,14 +8,14 @@ public void setup()
 } 
 public void draw() 
 {   
-	background(0);   
-	stroke(0,255,0);   
-	line(320,480,320,380);   
-	drawBranches(320,380,100,3*Math.PI/2);  //will add later 
+	background(#FFFFFF);         
+	drawBranches(320,380,100,3*Math.PI/2, 0, 255, 0);  //will add later 
 } 
-public void drawBranches(int x,int y, double branchLength, double angle) 
+public void drawBranches(int x,int y, double branchLength, double angle, int r, int g, int b) 
 {   
 	//your code here
+	stroke(r,g,b);
+	line(320,480,320,380);
 	double angle1 = angle + branchAngle;
 	double angle2 = angle - branchAngle;
 	branchLength = branchLength * fractionLength;
@@ -26,7 +26,7 @@ public void drawBranches(int x,int y, double branchLength, double angle)
 	line(x, y, endX1, endY1);
 	line(x, y, endX2, endY2);
 	if(branchLength > smallestBranch){
-		drawBranches(endX1, endY1, branchLength, angle1);
-		drawBranches(endX2, endY2, branchLength, angle2);
+		drawBranches(endX1, endY1, branchLength, angle1, r+50, g-20, b+10);
+		drawBranches(endX2, endY2, branchLength, angle2, r+5, g-10, b+50);
 	}
 } 
